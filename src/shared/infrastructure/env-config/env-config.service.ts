@@ -6,6 +6,21 @@ import { ConfigService } from "@nestjs/config";
 export class EnvConfigService implements EnvConfig {
 
     constructor(private readonly configService: ConfigService) {}
+    getDbHost(): string {
+        return this.configService.get<string>('DATABASE_HOST') as string;
+    }
+    getDbPort(): number {
+        return Number(this.configService.get<string>('DATABASE_PORT') as string)
+    }
+    getDbUser(): string {
+        return this.configService.get<string>('DATABASE_USER') as string;
+    }
+    getDbPassword(): string {
+        return this.configService.get<string>('DATABASE_PASSWORD') as string;
+    }
+    getDbName(): string {
+        return this.configService.get<string>('DATABASE_NAME') as string;
+    }
 
     getPort(): number {
         return Number(this.configService.get<string>('PORT') as string);

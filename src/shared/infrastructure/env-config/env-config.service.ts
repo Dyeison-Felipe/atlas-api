@@ -5,7 +5,7 @@ import { ConfigService } from "@nestjs/config";
 @Injectable()
 export class EnvConfigService implements EnvConfig {
 
-    constructor(private readonly configService: ConfigService) {}
+    constructor(private readonly configService: ConfigService) { }
     getDbHost(): string {
         return this.configService.get<string>('DATABASE_HOST') as string;
     }

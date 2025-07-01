@@ -5,26 +5,26 @@ export type SchemaBaseProps = Record<string, unknown>;
 
 export type SchemaProps = Partial<InstanceType<typeof BaseSchema>>;
 
-export class BaseSchema {
+export abstract class BaseSchema {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @CreateDateColumn({ name: 'created_at' })
+  @CreateDateColumn({ name: 'createdAt' })
   createdAt: Date;
 
-  @UpdateDateColumn({ name: 'updated_at' })
+  @UpdateDateColumn({ name: 'updatedAt' })
   updatedAt: Date;
 
-  @DeleteDateColumn({ name: 'deleted_at', nullable: true })
+  @DeleteDateColumn({ name: 'deletedAt', nullable: true })
   deletedAt: Date;
 
-  @Column({ name: 'created_by', nullable: true })
+  @Column({ name: 'createdBy', nullable: true })
   createdBy: string;
 
-  @Column({ name: 'update_by', nullable: true })
+  @Column({ name: 'updatedBy', nullable: true })
   updatedBy: string;
 
-  @Column({ name: 'delete_by', nullable: true })
+  @Column({ name: 'deletedBy', nullable: true })
   deletedBy: string;
 
   static with<Props extends SchemaBaseProps, Ent extends BaseSchema>(

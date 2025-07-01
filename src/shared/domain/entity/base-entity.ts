@@ -2,9 +2,9 @@ export type AuditableProps = {
   createdAt: Date;
   updatedAt: Date;
   deletedAt: Date | null;
-  createBy: string | null;
-  updateBy: string | null;
-  deleteBy: string | null;
+  createdBy: string | null;
+  updatedBy: string | null;
+  deletedBy: string | null;
 }
 
 export type EntityProps = {
@@ -30,9 +30,9 @@ export class BaseEntity<Props extends BaseProps> {
         createdAt: props.audit?.createdAt ?? new Date(),
         updatedAt: props.audit?.updatedAt ?? new Date(),
         deletedAt: props.audit?.deletedAt ?? null,
-        createBy: props.audit?.createBy ?? null,
-        updateBy: props.audit?.updateBy ?? null,
-        deleteBy: props.audit?.deleteBy ?? null,
+        createdBy: props.audit?.createdBy ?? null,
+        updatedBy: props.audit?.updatedBy ?? null,
+        deletedBy: props.audit?.deletedBy ?? null,
       }
     };
   }

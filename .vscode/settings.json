@@ -1,0 +1,8 @@
+{
+	"editor.codeActionsOnSave": {
+		"quickfix.biome": "explicit",
+		"source.addMissingImports.ts": "explicit",
+		"source.sortImports": "explicit",
+		"source.removeUnusedImports": "explicit"
+	}
+}

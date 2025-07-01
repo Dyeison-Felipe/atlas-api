@@ -2,10 +2,11 @@ import { EnvConfigService } from "../../service/env-config/env-config.service";
 import { ConfigService } from "@nestjs/config";
 import { Client } from 'pg';
 import { TypeOrmModuleOptions } from "@nestjs/typeorm";
+import * as path from 'path';
 
 const envConfig = new EnvConfigService(new ConfigService);
 
-export const databaseConfig = async (): Promise<TypeOrmModuleOptions> => {
+export async function databaseConfig(): Promise<TypeOrmModuleOptions> {
 
     const client = new Client({
         host: envConfig.getDbHost(),
@@ -37,9 +38,19 @@ export const databaseConfig = async (): Promise<TypeOrmModuleOptions> => {
         password: envConfig.getDbPassword(),
         database: envConfig.getDatabase(),
         synchronize: false,
-        autoLoadEntities: true,
-        entities: [],
-        migrations: [],
+        entities: [
+            path.resolve(
+                __dirname,
+                '../../../../core/**/infrastructure/typeorm/schema/*.schema.{ts,js}',
+            ),
+
+        ],
+        migrations: [
+            path.resolve(
+                __dirname,
+                '../../../../../shared/infrastructure/database/typeorm/migrations/*.{ts,js}',
+            )
+        ],
         migrationsRun: true,
     };
 

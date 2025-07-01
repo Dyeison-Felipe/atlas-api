@@ -1,3 +1,5 @@
 export const PROVIDERS = {
     ENV_CONFIG: 'ENV_CONFIG',
+    PLAN: 'PLAN',
+    PLAN_MAPPER: 'PLAN_MAPPER'
 }

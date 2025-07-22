@@ -1,15 +1,14 @@
 import { NestFactory } from '@nestjs/core';
+import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify';
 import { AppModule } from './app.module';
 import { globalConfig } from './global-config';
-import { EnvConfigService } from './shared/infra/service/env-config/env-config.service';
 import { PROVIDERS } from './shared/application/constants/providers';
-import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify';
 
 async function bootstrap() {
-  	const app = await NestFactory.create<NestFastifyApplication>(
-		AppModule,
-		new FastifyAdapter(),
-	);
+  const app = await NestFactory.create<NestFastifyApplication>(
+    AppModule,
+    new FastifyAdapter(),
+  );
 
   const envConfig = app.get(PROVIDERS.ENV_CONFIG);
 

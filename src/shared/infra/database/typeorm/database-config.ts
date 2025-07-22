@@ -1,8 +1,8 @@
-import { EnvConfigService } from "../../service/env-config/env-config.service";
 import { ConfigService } from "@nestjs/config";
-import { Client } from 'pg';
 import { TypeOrmModuleOptions } from "@nestjs/typeorm";
 import * as path from 'path';
+import { Client } from 'pg';
+import { EnvConfigService } from "../../env-config/env-config.service";
 
 const envConfig = new EnvConfigService(new ConfigService);
 

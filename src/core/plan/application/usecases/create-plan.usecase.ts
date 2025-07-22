@@ -1,15 +1,12 @@
-import { UseCase } from "src/shared/application/usecase/usecase";
-import { PlanRepository } from "../../domain/repositories/plan.repository";
-import { PlanOutput } from "src/shared/application/output/plan.output";
 import { BadRequestError } from "src/shared/application/errors/bad-request-error";
 import { ConflictError } from "src/shared/application/errors/conflict-error";
+import { CreatePlanInput } from "src/shared/application/inputs/plan/create-plan.input";
+import { PlanOutput } from "src/shared/application/output/plan.output";
+import { UseCase } from "src/shared/application/usecase/usecase";
 import { Plan } from "../../domain/entities/plan.entity";
+import { PlanRepository } from "../../domain/repositories/plan.repository";
 
-type Input = {
-  name: string;
-  description: string;
-  value: string;
-}
+type Input = CreatePlanInput;
 
 type Output = PlanOutput;
 

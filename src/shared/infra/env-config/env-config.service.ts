@@ -1,5 +1,5 @@
 import { ConfigService } from "@nestjs/config";
-import { EnvConfig, NodeEnv } from "src/shared/application/services/env-config/env-config.service";
+import { EnvConfig, NodeEnv } from "src/shared/application/env-config/env-config.service";
 
 export class EnvConfigService implements EnvConfig {
 

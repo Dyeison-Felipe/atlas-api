@@ -1,14 +1,14 @@
+import { ValidationPipe } from "@nestjs/common";
 import { NestFastifyApplication } from "@nestjs/platform-fastify";
-import { EnvConfig } from "./shared/application/services/env-config/env-config.service";
-import { GlobalErrorFilter } from "./shared/infra/exeption-filters/global-error/global-error.filter";
-import { NotFoundErrorFilter } from "./shared/infra/exeption-filters/not-found-error/not-found-error.filter";
-import { ConflictErrorFilter } from "./shared/infra/exeption-filters/conflict-error/conflict-error.filter";
+import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
+import { EnvConfig } from "./shared/application/env-config/env-config.service";
 import { BadRequestErrorFilter } from "./shared/infra/exeption-filters/bad-request-error/bad-request-error.filter";
-import { UnauthorizedErrorFilter } from "./shared/infra/exeption-filters/unauthorized-error/unauthorized-error.filter";
+import { ConflictErrorFilter } from "./shared/infra/exeption-filters/conflict-error/conflict-error.filter";
+import { GlobalErrorFilter } from "./shared/infra/exeption-filters/global-error/global-error.filter";
 import { InvalidCredentialsErrorFilter } from "./shared/infra/exeption-filters/invalid-credentials-error/invalid-credentials-error.filter";
 import { InvalidTokenErrorFilter } from "./shared/infra/exeption-filters/invalid-token-error/invalid-token-error.filter";
-import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
-import { ValidationPipe } from "@nestjs/common";
+import { NotFoundErrorFilter } from "./shared/infra/exeption-filters/not-found-error/not-found-error.filter";
+import { UnauthorizedErrorFilter } from "./shared/infra/exeption-filters/unauthorized-error/unauthorized-error.filter";
 
 export async function globalConfig(
   app: NestFastifyApplication,
